@@ -4,11 +4,11 @@ import { z } from 'zod'
 dotenv.config();
 
 const envSchema = z.object({
-	NODE_ENV: z.enum(['devlopment', 'production', 'test']),
+	NODE_ENV: z.enum(['development', 'production', 'test']),
 	PORT: z.string().default('8000'),
 	MONGO_URI: z.string().min(1),
 	JWT_SECRET: z.string().min(10),
-	CORS_URL: z.httpUrl()
+	CORS_URL: z.string()
 });
 
 const parsed = envSchema.safeParse(process.env);
@@ -24,5 +24,5 @@ export const env = {
 	port: parsed.data.PORT,
 	mongoUrl: parsed.data.MONGO_URI,
 	jwtSecret: parsed.data.JWT_SECRET,
-	coreUrl: parsed.data.CORS_URL,
+	corsUrl: parsed.data.CORS_URL,
 };
