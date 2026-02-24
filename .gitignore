@@ -1,0 +1,11 @@
+# ignore 3rd party lib
+node_modules
+
+# ignore disturbution files 
+dist
+
+# ignore enviroment variables
+.env
+
+# ignore keys
+.pem
